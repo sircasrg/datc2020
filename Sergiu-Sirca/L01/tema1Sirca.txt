@@ -1,0 +1,6 @@
+Dropbox:
+	- Este o platforma de stocare a datelor in cloud
+	- Orice fisier incarcat este automat disponibil pe toate dispozitivele care au posibilitatea de a se conecta la acest serviciu
+	- Face mult mai usoara distribuirea de fisiere la mai multe persoane de catre una singura
+	- Modificarile fisierelor text, de exemplu, se pot face direct pe platforma, toate modificarile fiind salvate direct in cloud
+	- Spatiu de stocare in plus pentru cei care nu au posibilitatea de a-si extinde spatiul de stocare de pe dispozitivul personal
