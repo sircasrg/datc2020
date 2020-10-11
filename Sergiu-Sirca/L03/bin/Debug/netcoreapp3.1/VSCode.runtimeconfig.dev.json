@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\sirca\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\sirca\\.nuget\\packages"
+    ]
+  }
+}
