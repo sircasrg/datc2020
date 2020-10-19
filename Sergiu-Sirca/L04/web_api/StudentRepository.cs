@@ -43,11 +43,20 @@ namespace web_api
 
         public async Task Create(StudentEntity student)
         {
-            var insertOperation=TableOperation.Insert(student);
-            await _studentsTable.ExecuteAsync(insertOperation);
+            StudentEntity newStudent = new StudentEntity(student.Faculty, student.CNP);
+            newStudent.FirstName = student.FirstName;
+            newStudent.LastName = student.LastName;
+            newStudent.CNP = student.CNP;
+            newStudent.Email = student.Email;
+            newStudent.PhoneNumber = student.PhoneNumber;
+            newStudent.Year = student.Year;
+            newStudent.Faculty = student.Faculty;
+
+            TableOperation insert = TableOperation.InsertOrMerge(newStudent);
+            TableResult result = await _studentsTable.ExecuteAsync(insert);
         }
 
-        public async Task Update (string partitionKey, string rowKey, StudentEntity student)
+        public async Task Update(string partitionKey, string rowKey, StudentEntity student)
         {
             student.PartitionKey=partitionKey;
             student.RowKey=rowKey;

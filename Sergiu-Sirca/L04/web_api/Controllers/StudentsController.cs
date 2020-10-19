@@ -25,18 +25,21 @@ namespace web_api.Controllers
         }
 
         [HttpPost]
-        public async Task<string> Post([FromBody] StudentEntity student)
+        public async Task Post([FromBody] StudentEntity student)
         {
-            try
-            {
-                await _studentRepository.Create(student);
-                return "S-a adaugat";
-            }
-            catch (System.Exception e)
-            {
-                return "Eroare: "+ e.Message;
-                throw;
-            }
+            await _studentRepository.Create(student);    
+        }
+
+        [HttpPut("{partitionKey}/{rowKey}")]
+        public async Task Update([FromRoute] string partitionKey, [FromRoute] string rowKey, [FromRoute] StudentEntity student)
+        {
+            await _studentRepository.Update(partitionKey, rowKey, student);
+        }
+
+        [HttpDelete("{partitionKey}/{rowKey}")]
+        public async Task Delete([FromRoute] string partitionKey, [FromRoute] string rowKey)
+        {
+            await _studentRepository.Delete(partitionKey, rowKey);
         }
     }
 }
